@@ -45,6 +45,8 @@ At this point, the purchase process begins. The player interacts with the IAP in
 
 PlayFab is then able to validate the receipt and register the purchase, granting the PlayFab player the items that they just bought.
 
+Note that following difference about a test receipt and a real one: Test receipts are validated on their Sandbox endpoint, while production receipts are validated on their production endpoint. When we validate an iOS receipt, we try production first and if that fails, we use Sandbox. That way, the receipt validation API call works for both. Additionally, we could mention there are no player_realmoney_purchase events for iOS Sandbox purchases.
+
 This is a rough idea of how IAP integration works, and the following example shows most of it in action.
 
 ## Setting up a client application
